@@ -2,9 +2,9 @@
 
 // 事件委托
 export const delegate = (element,eventType, selector, fn)=>{
-    element.addEventListener(eventType,e=>{
+    element.addEventListener(eventType,function(e){
         let el = e.target;
-        while(!e.matches(selector)){
+        while(!el.matches(selector)){
             if(element === el){
                 el = null;
                 break;
