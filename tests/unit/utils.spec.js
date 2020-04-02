@@ -1,4 +1,4 @@
-import {delegate} from '../../src/utils/index';
+import {delegate, toFixed} from '../../src/utils/index';
 
 describe('utils test',()=>{
     test('utils 事件委托',()=>{
@@ -19,5 +19,10 @@ describe('utils test',()=>{
             console.log(this);
         });
         $span.click();
+    });
+
+    test.only('unitls 保留小数点',()=>{
+        let num = 123.125;
+        expect(toFixed(num,1)).toEqual(123.1);
     })
 })

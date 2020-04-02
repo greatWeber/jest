@@ -1,7 +1,8 @@
 <template>
   <div class="decimalPoint">
       <input type="text" v-model="number" placeholder="请输入数字">
-      <button @click="toFixed">保留两位小数</button>
+      <input type="number" v-model="n" placeholder="请输入数字">
+      <button @click="toFixed">保留{{n}}小数</button>
   </div>
 </template>
 
@@ -10,13 +11,13 @@ import Big from 'big.js';
 export default {
     data(){
         return {
-            number:''
+            number:'',
+            n:2
         }
     },
     methods:{
         toFixed(){
-            debugger;
-            let n = new Big(this.number).toFixed(2);
+            let n = new Big(this.number).toFixed(+this.n);
             this.number = n;
         }
     }
