@@ -36,7 +36,6 @@ export const toFixed = (number,n) => {
     let numberArray = numberStr.split('');
     let len = numberArray.length;
     let oldPointNum = len - pointIndex;
-    console.log(numberStr,pointIndex,oldPointNum);
     if(oldPointNum < n){
         while(n-oldPointNum >0){
             numberArray.push(0);
@@ -45,15 +44,21 @@ export const toFixed = (number,n) => {
     }else if(oldPointNum>n){
          numberArray.length = len - (oldPointNum - n -1);
          len = numberArray.length;
-         let more = numberArray[len-1]>=5?true: false;
-        numberArray[len-1] = more? 0: numberArray[len-1];
-        numberArray[len-2] = more?(+numberArray[len-2])+1:numberArray[len-2];
+         let i=1;
+         let more = numberArray[len-i]>=5?true: false;
+         while(more){
+            i++;
+            more = (+numberArray[len-i])+1 === 10? true: false;
+            numberArray[len-i] = more? 0: (+numberArray[len-i])+1;
+            console.log(i,len);
+         }
         numberArray.pop();
-        
-
+        if(i=== len+1){
+            numberArray.unshift(1);
+            pointIndex+=1;
+        }
     }
     numberArray.splice(pointIndex,0,'.');
-    console.log(numberArray);
-    return +(numberArray.join(''));
+    return numberArray.join('');
 
 }
