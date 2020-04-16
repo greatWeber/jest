@@ -16,7 +16,7 @@
 
 <script>
 import Big from 'big.js';
-import {toFixed, toFixed2} from '@/utils/index';
+import {toFixed, toFixed2, toFixed3} from '@/utils/index';
 export default {
     data(){
         return {
@@ -33,7 +33,7 @@ export default {
         },
         toFixed2(){
             //let n = toFixed(this.number2,+this.n2);
-            let n = toFixed2(this.number2,+this.n2);
+            let n = toFixed3(this.number2,+this.n2);
             this.number2 = n;
         }
     }

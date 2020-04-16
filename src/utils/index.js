@@ -68,14 +68,15 @@ export const toFixed3 = (number,n)=>{
       console.error('输入的数字格式不对');
       return;
   }
-  
-  let sign = matches[1];
+  console.log(matches);
+  let sign = matches[1] || '';
   let pointNum = matches[3];
   numberStr = '0'+matches[2];
   let isTop = true;
   let len = pointNum.length;
   if(len === n+2){
     pointNum = numberStr.match(/\d/g);
+    len = pointNum.length;
     if((+pointNum[len-1]) >=5){
       for(let i=len-2;i>=0;i--){
         pointNum[i] = (+pointNum[i]) +1;

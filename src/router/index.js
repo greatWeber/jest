@@ -15,6 +15,12 @@ const router = new Router({
             name:'decimalPoint',
             meta:{title:'小数点'},
             component:()=>import('@/views/decimalPoint')
+        },
+        {
+            path:'/backtrack',
+            name:'backtrack',
+            meta:{title:'括号生成'},
+            component:()=>import('@/views/backtrack')
         }
     ]
 })
