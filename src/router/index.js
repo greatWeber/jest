@@ -21,6 +21,12 @@ const router = new Router({
             name:'backtrack',
             meta:{title:'括号生成'},
             component:()=>import('@/views/backtrack')
+        },
+        {
+            path:'/render',
+            name:'render',
+            meta:{title:'render渲染'},
+            component:()=>import('@/views/render/index')
         }
     ]
 })

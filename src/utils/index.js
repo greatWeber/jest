@@ -124,3 +124,12 @@ export const toFixed2 = (number, d) => {
   }
   return number + "";
 };
+
+
+export const Random = (number)=>{
+  const rs = [];
+  for(let i=0;i<number;i++){
+    rs.push(parseInt(Math.random()*number));
+  }
+  return rs;
+}
