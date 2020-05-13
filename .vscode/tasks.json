@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "vue-cli-service build"
+		},
+		{
+            "label":"hello world",
+            "type":"shell",
+            "command":"g++",
+            "args":[
+                "C++/main.cpp"
+            ],
+            "group":{
+                "kind":"build",
+                "isDefault":true
+            }
+        }
+	]
+}
