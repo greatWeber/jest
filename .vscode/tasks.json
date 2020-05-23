@@ -14,7 +14,8 @@
             "type":"shell",
             "command":"g++",
             "args":[
-                "C++/main.cpp"
+				"C++/main.cpp",
+				"C++/suppert.cpp"
             ],
             "group":{
                 "kind":"build",
