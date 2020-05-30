@@ -2,10 +2,10 @@
   <div class="list-wrapper">
       <h2 class="title">首页</h2>
       <ul>
-          <router-link 
+          <router-link
           v-for="(item,i) in list"
           :key="i"
-          :to="{name:item.name}" 
+          :to="{name:item.name}"
           class="list-item">{{item.meta.title}}</router-link>
       </ul>
   </div>
@@ -13,17 +13,17 @@
 
 <script>
 export default {
-    data(){
-        return {
-            list:[]
-        }
-    },
-    created(){
-        console.log(this.$router);
-        this.list = this.$router.options.routes.slice(1);
-        console.log(this.list);
-    }
-}
+  data() {
+    return {
+      list: []
+    };
+  },
+  created() {
+    console.log(this.$router);
+    this.list = this.$router.options.routes.slice(1);
+    console.log(this.list);
+  }
+};
 </script>
 
 <style lang="less">

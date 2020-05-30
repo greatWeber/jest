@@ -8,7 +8,7 @@
                 <span class="debugger" v-if="isDebugger==false">断点调试</span>
                 <span class="debugger" v-else>取消断点</span>
           </p>
-          
+
       </div>
       <div class="result">{{result}}</div>
   </div>
@@ -17,22 +17,22 @@
 <script>
 import {Backtrack} from '@/leetcode/backtrack';
 export default {
-    data(){
-        return {
-            input:'',
-            result:'',
-            isDebugger:false,
-        }
-    },
-    methods:{
-        handleSubmit(){
-            if(this.isDebugger){
-                debugger
-            }
-            this.result = Backtrack(this.input);
-        }
+  data() {
+    return {
+      input: '',
+      result: '',
+      isDebugger: false
+    };
+  },
+  methods: {
+    handleSubmit() {
+      if (this.isDebugger) {
+        debugger;
+      }
+      this.result = Backtrack(this.input);
     }
-}
+  }
+};
 </script>
 
 <style lang="less">

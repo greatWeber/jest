@@ -8,15 +8,15 @@
 <script>
 import render from './render';
 export default {
-    components:{
-        render
-    },
-    data(){
-        return {
-            h1:'the parent'
-        }
-    }
-}
+  components: {
+    render
+  },
+  data() {
+    return {
+      h1: 'the parent'
+    };
+  }
+};
 </script>
 
 <style>

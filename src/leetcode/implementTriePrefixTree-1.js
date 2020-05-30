@@ -19,52 +19,52 @@ search("b..") -> true
 说明:
 
 你可以假设所有单词都是由小写字母 a-z 组成的。
- * 
+ *
  */
 
- function TrieNode(val){
-     this.val = val;
-     this.children = {};
-     this.isWorld = false; // 是否在尾部
- }
+function TrieNode(val) {
+  this.val = val;
+  this.children = {};
+  this.isWorld = false; // 是否在尾部
+}
 
- function Trie (){
-     this.root = new TrieNode(null);
- }
+function Trie() {
+  this.root = new TrieNode(null);
+}
 
- Trie.prototype.addWord = function(word){
-     let current = this.root;
-     for(let i in word){
-         let c = word[i];
-         if(!current.children[c]){
-            current.children[c] = new TrieNode(c);
-         }
-         current = current.children[c];
-     }
-     current.isWorld = true;
- }
+Trie.prototype.addWord = function(word) {
+  let current = this.root;
+  for (let i in word) {
+    let c = word[i];
+    if (!current.children[c]) {
+      current.children[c] = new TrieNode(c);
+    }
+    current = current.children[c];
+  }
+  current.isWorld = true;
+};
 
- Trie.prototype.search = function(word){
-     let current = this.root;
-     
-     for(let i in word){
-         let c = word[i];
-         if(c === '.') {
-             // 遇到适配符合，对所有的可能性进行重复调用
-             for(let key in current.children){
-                 let wordArray = word.split('');
-                 wordArray.splice(i,1,key)
-                 let newWord = wordArray.join('');
-                 if(this.search(newWord)) return true;
-             }
-             
-         }
-         if(!current.children[c]) return false;
-         current = current.children[c];
-     }
-     return current.isWorld;
- }
+Trie.prototype.search = function(word) {
+  let current = this.root;
 
- export default {
-    Trie
- }
+  for (let i in word) {
+    let c = word[i];
+    if (c === '.') {
+      // 遇到适配符合，对所有的可能性进行重复调用
+      for (let key in current.children) {
+        let wordArray = word.split('');
+        wordArray.splice(i, 1, key);
+        let newWord = wordArray.join('');
+        if (this.search(newWord)) return true;
+      }
+
+    }
+    if (!current.children[c]) return false;
+    current = current.children[c];
+  }
+  return current.isWorld;
+};
+
+export default {
+  Trie
+};

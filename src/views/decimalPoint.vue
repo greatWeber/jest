@@ -10,7 +10,7 @@
             <input type="number" v-model="n2" placeholder="请输入数字">
             <button @click="toFixed2">保留{{n2}}小数</button>
       </div>
-      
+
   </div>
 </template>
 
@@ -18,26 +18,26 @@
 import Big from 'big.js';
 import {toFixed, toFixed2, toFixed3} from '@/utils/index';
 export default {
-    data(){
-        return {
-            number:'',
-            n:2,
-            number2:'',
-            n2:2,
-        }
+  data() {
+    return {
+      number: '',
+      n: 2,
+      number2: '',
+      n2: 2
+    };
+  },
+  methods: {
+    toFixed() {
+      let n = new Big(this.number).toFixed(+this.n);
+      this.number = n;
     },
-    methods:{
-        toFixed(){
-            let n = new Big(this.number).toFixed(+this.n);
-            this.number = n;
-        },
-        toFixed2(){
-            //let n = toFixed(this.number2,+this.n2);
-            let n = toFixed3(this.number2,+this.n2);
-            this.number2 = n;
-        }
+    toFixed2() {
+      // let n = toFixed(this.number2,+this.n2);
+      let n = toFixed3(this.number2, +this.n2);
+      this.number2 = n;
     }
-}
+  }
+};
 </script>
 
 <style lang="less">
