@@ -43,3 +43,29 @@ export const Backtrack2 = (input) =>{
   backtrack(input, []);
   return rs;
 };
+
+/**
+ * 题目：戳气球问题
+ *  LeetCode 第 312 题
+ */
+
+export const Backtrack3 = (arr)=>{
+  let rs = 0;
+  const backtrack = (num, socre) =>{ 
+    if (num.length === 0) {
+      rs = Math.max(rs, socre);
+      return ;
+    }
+    for (let i = 0;i < num.length;i++) {
+      let left = num[i-1] || 1;
+      let right = num[i+1] ||1;
+      let point = left * num[i] * right;
+      let temp = num.splice(i, 1);
+      backtrack(num, socre + point);
+      num.splice(i,0,temp[0]);
+    }
+  };
+  backtrack(arr , 0);
+  console.log('rs'  ,rs);
+  return rs;
+};

@@ -1,5 +1,5 @@
 
-import {Backtrack, Backtrack2} from '@/leetcode/backtrack';
+import {Backtrack, Backtrack2, Backtrack3} from '@/leetcode/backtrack';
 
 describe('回溯算法', ()=>{
   test('生成括号', ()=>{
@@ -7,8 +7,14 @@ describe('回溯算法', ()=>{
     console.log(rs);
   });
 
-  test.only('全排列', ()=>{
+  test('全排列', ()=>{
     const rs = Backtrack2([1, 2, 3]);
     console.log(rs);
+  });
+
+  test.only('戳气球问题 ', ()=>{
+    const rs = Backtrack3([3, 1, 5, 8]); 
+    console.log(rs);
+
   });
 });
