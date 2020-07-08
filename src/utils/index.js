@@ -132,3 +132,19 @@ export const Random = (number)=>{
   }
   return rs;
 };
+
+export const currying =(fn) =>{
+  let argsArr = [];
+  const curryingFn = (...args)=>{
+    argsArr = argsArr.concat([...args]);
+    console.log('args',argsArr,args);
+    return curryingFn;
+  }
+
+  curryingFn.toString = function(){
+    console.log('fn')
+    return fn(...argsArr);
+  }
+
+  return curryingFn;
+}

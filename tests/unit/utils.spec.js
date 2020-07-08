@@ -1,4 +1,4 @@
-import {delegate, toFixed} from '../../src/utils/index';
+import {delegate, toFixed, currying} from '../../src/utils/index';
 
 describe('utils test', ()=>{
   test('utils 事件委托', ()=>{
@@ -21,8 +21,17 @@ describe('utils test', ()=>{
     $span.click();
   });
 
-  test.only('unitls 保留小数点', ()=>{
+  test('unitls 保留小数点', ()=>{
     let num = 123.125;
     expect(toFixed(num, 1)).toEqual(123.1);
   });
+
+  test.only('currying 柯里化',()=>{
+    function fn(){
+      console.log(arguments);
+    }
+    const fn2 = currying(fn);
+    const fn3 = fn2(1)(2); //无法自动触发toString
+    // expect(fn3).toEqual(1);
+  })
 });

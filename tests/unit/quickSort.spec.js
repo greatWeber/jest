@@ -3,7 +3,7 @@ import {QuickSort, QuickSort2} from '@/leetcode/quickSort.js';
 import {Random} from '@/utils/index.js';
 
 let arr = [];
-arr = Random(10000000);
+arr = Random(100);
 
 describe('快速排序', ()=>{
 
